@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUY LOCAL - Farm App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+ #productModal{
+  display: none;
+ }
+.active-tab {     
+  display: flex;
+}
+.hidden { 
+  display: none;
+}
+    section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .active-tab {
+    border-bottom: 2px solid  green; /* Tailwind's blue-500 */
+    color: #3b82f6;
+  }
+
+
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Wrapper -->
+  <div class="flex h-screen overflow-hidden">
+    <!-- Sidebar for large screens -->
+    <aside id="sidebar" class="hidden lg:flex flex-col bg-gray-800 w-64 p-4 space-y-6">
+  <div class="text-2xl font-bold text-white">BUY LOCAL</div>
+  <nav class="space-y-4">
+    <a href="#" class="block">
+      <i class="fas fa-home mr-2 text-white-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Home</i>
+    </a>
+    <a href="#" class="block">
+      <i class="fas fa-shopping-bag mr-2 text-gray-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Orders</i>
+    </a>
+    <a href="#" class="block">
+      <i class="fab fa-facebook-messenger mr-2 text-white-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Messages</i>
+    </a>
+    <a href="#" class="block">
+      <i class="fas fa-store mr-2 text-white-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Marketplace</i>
+    </a>
+    <a href="#" class="block">
+      <i class="fas fa-bell mr-2 text-gray-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Notifications</i>
+    </a>
+    <a href="#" class="block">
+      <i class="fas fa-user mr-2 text-white-500 hover:text-green-500 transition-all duration-200 cursor-pointer" onclick="setActive(this)"> Profile</i>
+    </a>
+  </nav>
+</aside>
+<div class="flex-1 flex flex-col">
+  <!-- Header (for mobile and desktop) -->
+  <header class="p-4 flex flex-col space-y-3 lg:flex-row lg:justify-between lg:items-center bg-gray-900 border-b border-gray-700">
+    <!-- Top Row -->
+    <div class="flex justify-between items-center w-full">
+      <span class="text-2xl font-bold">BUY LOCAL</span>
+      <div class="flex items-center space-x-4 lg:hidden">
+        <button onclick="toggleSearchBar()"><i class="fas fa-search text-xl"></i></button>
+        <button    onclick="showSection('settingsSection', this)"     >
+  <i class="fas fa-cog text-xl"></i>
+</button>
+      </div>
+    </div>
+    
+    <!-- Bottom Row -->
+    <!-- Mobile Nav Icons -->
+<div class="grid grid-cols-6 gap-4 items-center justify-items-center lg:hidden">
+  <i class="fas fa-home text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('homeSection', this)"></i>
+  <i class="fas fa-shopping-bag text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('ordersSection', this)"></i>
+  <i class="fab fa-facebook-messenger text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('messagesSection', this)"></i>
+  <i class="fas fa-store text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('marketSection', this)"></i>
+  <i class="fas fa-bell text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('notificationsSection', this)"></i>
+  <i class="fas fa-user text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('profileSection', this)"></i>
+</div>
+
+  </header>
+
+  <!-- Search Bar -->
+  <div id="searchBar" class="hidden bg-gray-800 p-4">
+    <input type="text" placeholder="Search products or farmers..." class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white" />
+  </div>
+
+  <!-- Main Render Area -->
+  <main id="mainContent" class="flex-1 overflow-y-auto p-4">
+
+  <section id="homeSection" class="main-section">
+    <h2 class="text-white text-xl font-bold mb-4">Home</h2>
+
+    <!-- Product Grid -->
+    <div id="productSection" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Compact Product Card -->
+      <div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+        <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-24 object-cover rounded mb-2" />
+        <div class="text-sm font-semibold text-white mb-2">Fresh Tomatoes</div>
+        <button onclick="OpenModal()" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+      </div>
+      <!-- You can add more product cards here -->
+      
+      <!-- Product 1 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fresh Tomatoes" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Fresh Tomatoes</div>
+  <button onclick="OpenModal('Fresh Tomatoes', 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,500', 'Farmer Justice')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 2 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.pexels.com/photos/1192056/pexels-photo-1192056.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sweet Corn" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Sweet Corn</div>
+  <button onclick="OpenModal('Sweet Corn', 'https://images.pexels.com/photos/1192056/pexels-photo-1192056.jpeg?auto=compress&cs=tinysrgb&w=600', '₦800', 'Farmer Abigail')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 3 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.pexels.com/photos/3650640/pexels-photo-3650640.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Organic Carrots" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Organic Carrots</div>
+  <button onclick="OpenModal('Organic Carrots', 'https://images.pexels.com/photos/3650640/pexels-photo-3650640.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,200', 'Farmer Peter')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 4 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.pexels.com/photos/1300974/pexels-photo-1300974.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cassava Tubers" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Cassava Tubers</div>
+  <button onclick="OpenModal('Cassava Tubers', 'https://images.pexels.com/photos/1300974/pexels-photo-1300974.jpeg?auto=compress&cs=tinysrgb&w=600', '₦2,000', 'Farmer Blessing')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 5 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ripe Plantains" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Ripe Plantains</div>
+  <button onclick="OpenModal('Ripe Plantains', 'https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,000', 'Farmer Kelvin')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+      <!-- Product 1 -->
+
+
+<!-- Product 2 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.unsplash.com/photo-1615471158528-8572d6b43bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sweet Corn" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Sweet Corn</div>
+  <button onclick="OpenModal('Sweet Corn', 'https://images.unsplash.com/photo-1615471158528-8572d6b43bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', '₦800', 'Farmer Abigail')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 3 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Organic Carrots" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Organic Carrots</div>
+  <button onclick="OpenModal('Organic Carrots', 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', '₦1,200', 'Farmer Peter')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 4 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.unsplash.com/photo-1607330287855-810c9eaf0b47?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cassava Tubers" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Cassava Tubers</div>
+  <button onclick="OpenModal('Cassava Tubers', 'https://images.unsplash.com/photo-1607330287855-810c9eaf0b47?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', '₦2,000', 'Farmer Blessing')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+
+<!-- Product 5 -->
+<div class="bg-gray-800 rounded-lg p-3 shadow-lg">
+  <img src="https://images.unsplash.com/photo-1587049352849-188fae0b90ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ripe Plantains" class="w-full h-24 object-cover rounded mb-2" />
+  <div class="text-sm font-semibold text-white mb-2">Ripe Plantains</div>
+  <button onclick="OpenModal('Ripe Plantains', 'https://images.unsplash.com/photo-1587049352849-188fae0b90ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80', '₦1,000', 'Farmer Kelvin')" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+</div>
+    </div>
+  </section>
+
+  <!-- Other sections (start hidden) -->
+  <section id="ordersSection" class="main-section transition-all duration-300 ease-in-out px-4   hidden">
+  <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+  <div id="cartItems" class="space-y-4">
+    <!-- Cart Item -->
+    <div class="flex flex-wrap items-center justify-between bg-gray-800 p-4 rounded-lg shadow">
+      <div class="flex items-center space-x-4 w-full sm:w-auto sm:flex-1">
+        <img src="https://via.placeholder.com/80" class="w-16 h-16 rounded object-cover flex-shrink-0" />
+        <div class="min-w-0">
+          <h3 class="font-semibold truncate">Fresh Tomatoes</h3>
+          <p class="text-sm text-gray-400">₦1,500 each</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 mt-3 sm:mt-0">a
+        <input type="number" min="1" value="1" data-price="1500"
+          class="qty-input w-16 bg-gray-700 text-white text-center rounded py-1 focus:outline-none" >
+        <span class="item-total font-bold text-green-400 w-[90px] text-right block">₦1,500</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="mt-6 bg-gray-800 p-4 rounded-lg">
+    <div class="flex justify-between mb-2">
+      <span class="text-lg font-semibold">Total</span>
+      <span id="cartTotal" class="text-lg font-bold text-green-400">₦1,500</span>
+    </div>
+    <button class="w-full bg-green-600 hover:bg-green-500 py-2 mt-2 rounded text-white font-semibold">
+      Proceed to Checkout
+    </button>
+  </div>
+</section>
+
+<!-- ✅ Wrapper Section -->
+<section id="marketSection" class="main-section hidden px-4 py-6 bg-[#181818] text-white font-sans">
+  <div class="max-w-md mx-auto space-y-6">
+
+    <!-- ✅ Featured Product Banner -->
+    <div id="featuredProduct" class="bg-[#222] rounded-2xl overflow-hidden shadow-md animate-fade-in h-48 relative">
+      <img src="product-image/tomatoes.png" class="w-full h-full object-cover opacity-70" alt="Featured Product">
+      <div class="absolute bottom-4 left-4">
+        <h2 class="text-xl font-bold">Fresh Tomatoes</h2>
+        <p class="text-sm text-gray-300">₦1,200 - Sold by Blessing Farms</p>
+      </div>
+    </div>
+
+    <!-- ✅ Similar Products Heading -->
+    <h3 class="text-lg font-semibold">Similar Products</h3>
+
+    <!-- ✅ Similar Products Grid -->
+    <div class="grid grid-cols-4 gap-2">
+      <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+        <img src="product-image/yam.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+        <p class="text-xs">Yam</p>
+      </div>
+      <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+        <img src="product-image/corn.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+        <p class="text-xs">Corn</p>
+      </div>
+      <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+        <img src="product-image/rice.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+        <p class="text-xs">Rice</p>
+      </div>
+      <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+        <img src="product-image/pepper.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+        <p class="text-xs">Pepper</p>
+      </div>
+    </div>
+
+    <!-- ✅ Post or Request Product CTA -->
+    <div class="bg-green-700 rounded-xl p-4 mt-6 flex items-center justify-between">
+      <p class="text-sm">Want to post or request a product?</p>
+      <button class="bg-white text-green-700 text-sm font-bold px-4 py-1 rounded">Create</button>
+    </div>
+
+    <!-- ✅ Scroll Categories -->
+    <div class="space-y-6 mt-8">
+      <!-- Category Title -->
+      <h3 class="text-lg font-semibold">New Arrivals</h3>
+
+      <!-- Product Row -->
+      <div class="grid grid-cols-3 gap-2">
+        <div class="bg-[#292929] p-2 rounded-xl">
+          <img src="product-image/goat.png" class="w-full h-20 object-cover rounded mb-1">
+          <p class="text-sm">Goat</p>
+        </div>
+        <div class="bg-[#292929] p-2 rounded-xl">
+          <img src="product-image/pawpaw.png" class="w-full h-20 object-cover rounded mb-1">
+          <p class="text-sm">Pawpaw</p>
+        </div>
+        <div class="bg-[#292929] p-2 rounded-xl">
+          <img src="product-image/rabbit.png" class="w-full h-20 object-cover rounded mb-1">
+          <p class="text-sm">Rabbit</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="settingsSection" class="main-section hidden bg-[#181818] text-white px-4 py-6 font-sans min-h-screen">
+  <div class="max-w-md mx-auto space-y-6">
+    <h2 class="text-2xl font-bold mb-4 text-green-400">Settings</h2>
+
+    <!-- Profile Settings -->
+    <div class="bg-[#242424] rounded-xl p-4 shadow">
+      <h3 class="text-lg font-semibold mb-2 text-white">Account</h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+          <span>Edit Profile</span>
+          <i class="fas fa-user-edit text-green-400"></i>
+        </li>
+        <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+          <span>Change Password</span>
+          <i class="fas fa-lock text-green-400"></i>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Location Settings</span>
+          <i class="fas fa-map-marker-alt text-green-400"></i>
+        </li>
+      </ul>
+    </div>
+
+    <!-- App Preferences -->
+    <div class="bg-[#242424] rounded-xl p-4 shadow">
+      <h3 class="text-lg font-semibold mb-2 text-white">Preferences</h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+          <span>Dark Mode</span>
+          <label class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" value="" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500"></div>
+          </label>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Notifications</span>
+          <i class="fas fa-bell text-green-400"></i>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Help & Support -->
+    <div class="bg-[#242424] rounded-xl p-4 shadow">
+      <h3 class="text-lg font-semibold mb-2 text-white">Support</h3>
+      <ul class="space-y-3 text-sm">
+        <li class="flex justify-between items-center border-b border-gray-700 pb-2">
+          <span>FAQs</span>
+          <i class="fas fa-question-circle text-green-400"></i>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Contact Support</span>
+          <i class="fas fa-headset text-green-400"></i>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Logout -->
+    <div class="text-center mt-6">
+      <button class="bg-red-600 hover:bg-red-500 px-6 py-2 rounded-full text-sm font-semibold">Logout</button>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Profile Section -->
+ <section id="profileSection" class="main-section px-4 py-6 bg-[#181818] text-white font-sans hidden">
+  <div class="channel-container max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <header class="channel-header relative">
+      <div class="cover-photo h-40 bg-center bg-cover rounded-md" style="background-image: url('product-image/tomatoes.png');"></div>
+      <div class="profile-section -mt-12 flex flex-col items-center text-center">
+        <div class="profile-picture w-24 h-24 rounded-full border-4 border-[#181818] bg-cover bg-center shadow-lg" style="background-image: url('product-image/okra.png');"></div>
+        <div class="profile-info mt-2">
+          <h1 class="text-lg font-semibold">Justice King</h1>
+          <p class="text-sm text-gray-400">Organic Farmer | Ibadan</p>
+          <button class="subscribe-btn mt-2 bg-green-500 text-white px-4 py-1 text-sm rounded-full hover:bg-green-400">Message</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs mt-6 border-b border-gray-700">
+      <ul class="flex justify-around text-sm">
+        <li class="tab active pb-2 border-b-2 border-green-500 text-green-500 cursor-pointer" onclick="switchTab('projectsTab')">Products</li>
+        <li class="tab pb-2 text-gray-400 cursor-pointer" onclick="switchTab('aboutTab')">About</li>
+      </ul>
+    </nav>
+
+    <!-- Tab Contents -->
+    <div id="projectsTab" class="video-grid mt-6">
+      <h2 class="text-lg font-bold mb-4">My Farm Products</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <div class="card bg-gray-800 rounded-md overflow-hidden shadow hover:scale-105 transition">
+          <div class="thumbnail h-24 bg-center bg-cover" style="background-image: url('https://placehold.co/100x100');"></div>
+          <div class="card-info p-2">
+            <h3 class="text-sm font-semibold text-white">Tomatoes</h3>
+            <p class="text-xs text-gray-400">₦1,200 / Basket</p>
+          </div>
+        </div>
+        <!-- Repeat card for other products -->
+      </div>
+    </div>
+
+    <div id="aboutTab" class="mt-6 hidden">
+      <h2 class="text-lg font-bold mb-2">About Me</h2>
+      <p class="text-sm text-gray-300">I'm Justice, a farmer passionate about delivering fresh produce from the soil to your table. Based in Ibadan.</p>
+    </div>
+
+  </div>
+</section>
+
+
+ 
+    
+     
+
+
+   
+    
+     <!-- NOTIFICATION SECTION -->
+<section id="notificationsSection" class="main-section hidden bg-[#181818] min-h-screen px-4 py-6">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-white">Your Notifications</h2>
+
+    <div class="space-y-4">
+
+      <!-- Notification Card -->
+      <div class="notification-item bg-[#2c2c2c] hover:bg-[#333] transition p-4 rounded-xl shadow-sm border border-gray-700 cursor-pointer">
+        <div class="flex items-start gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 bg-blue-800/30 text-blue-400 flex items-center justify-center rounded-full">
+              <i class="fas fa-bell text-lg"></i>
+            </div>
+            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full unread-dot"></span>
+          </div>
+          <div class="flex-1">
+            <div class="text-sm font-semibold text-white">Musa added a new product</div>
+            <p class="text-sm text-gray-400 mt-1 short-msg">Check out Musa’s new listing: “Organic Carrots”.</p>
+            <div class="text-sm text-gray-300 mt-2 hidden full-msg">
+              Musa’s carrots are fresh and pesticide-free. Visit his profile for more info or to contact him.
+            </div>
+            <div class="text-xs text-gray-500 mt-2">Just now</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Another Notification -->
+      <div class="notification-item bg-[#2c2c2c] hover:bg-[#333] transition p-4 rounded-xl shadow-sm border border-gray-700 cursor-pointer">
+        <div class="flex items-start gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 bg-green-800/30 text-green-400 flex items-center justify-center rounded-full">
+              <i class="fas fa-comment text-lg"></i>
+            </div>
+            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full unread-dot"></span>
+          </div>
+          <div class="flex-1">
+            <div class="text-sm font-semibold text-white">New message from Sarah</div>
+            <p class="text-sm text-gray-400 mt-1 short-msg">Sarah: “Hi, I’m interested in your yams…”</p>
+            <div class="text-sm text-gray-300 mt-2 hidden full-msg">
+              She wants to know if they’re still available and how soon she can get them.
+            </div>
+            <div class="text-xs text-gray-500 mt-2">5 mins ago</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section id="messagesSection" class="main-section hidden h-screen bg-[#181818] text-white">
+  <div class="max-w-md mx-auto flex flex-col h-full">
+
+    <!-- Chat List -->
+    <div id="chatList" class="flex-1 overflow-y-auto px-4 py-6 space-y-4">
+      <h2 class="text-xl font-bold mb-4 text-green-400">Messages</h2>
+
+      <div class="chat-item bg-gray-800 hover:bg-gray-700 transition p-4 rounded-lg cursor-pointer" onclick="openChat('Sarah')">
+        <p class="font-semibold">Sarah</p>
+        <p class="text-sm text-gray-400">Hi! Is the yam still available?</p>
+      </div>
+
+      <div class="chat-item bg-gray-800 hover:bg-gray-700 transition p-4 rounded-lg cursor-pointer" onclick="openChat('Musa')">
+        <p class="font-semibold">Musa</p>
+        <p class="text-sm text-gray-400">I just added new carrots...</p>
+      </div>
+    </div>
+
+    <!-- Chat Body -->
+    <div id="chatBody" class="flex flex-col flex-1 hidden h-full">
+      <!-- Header -->
+      <div class="flex items-center px-4 py-3 border-b border-gray-700">
+        <button onclick="closeChat()" class="text-lg text-green-400 mr-3">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <h3 id="chatTitle" class="font-bold text-lg"></h3>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="chatMessages" class="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+        <!-- Messages go here -->
+      </div>
+
+      <!-- Input Area -->
+     <!-- Input Area -->
+<div class="flex items-center gap-2 px-4 py-3 border-t border-gray-700 bg-[#181818]">
+  <input id="chatInput" type="text" placeholder="Type a message..." 
+         class="flex-1 p-2 rounded-full text-sm text-black" />
+  <button onclick="sendMessage()" 
+          class="bg-green-600 p-2 rounded-full hover:bg-green-500 text-white">
+    <i class="fas fa-paper-plane"></i>
+  </button>
+</div>
+
+</section>
+
+
+
+
+
+  </main>
+</div>
+
+
+
+  </div>  <script src="script.js">
+
+    
+  </script>
+  
+<!-- Font Awesome (for icons) -->
+
+
+
+
+  <!-- Product Modal -->
+<div id="productModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg max-w-sm w-full p-5 relative shadow-lg animate-fadeInUp">
+    <button class="absolute top-2 right-3 text-xl text-gray-700" onclick="closeModal()">×</button>
+    <img id="modalImage" src="" class="w-full h-40 object-cover rounded mb-3" alt="Product Image" />
+    <h3 id="modalTitle" class="text-lg font-bold text-green-700 mb-1"></h3>
+    <p id="modalPrice" class="text-sm text-gray-700 mb-1"></p>
+    <p id="modalSeller" class="text-sm text-gray-500 mb-3"></p>
+
+    <div class="flex gap-2">
+      <button class="flex-1 bg-green-600 hover:bg-green-500 text-white py-2 rounded text-sm" onclick="goToProfile()">Contact Seller</button>
+      <button class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded text-sm" onclick="addToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
