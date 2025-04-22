@@ -70,30 +70,34 @@ section.visible {
     </nav>
   </aside>
 
+  
 <div class="flex-1 flex flex-col">
-  <!-- Header (for mobile and desktop) -->
+
+  <!-- Header (Mobile + Desktop) -->
   <header class="p-4 flex flex-col space-y-3 lg:flex-row lg:justify-between lg:items-center bg-gray-900 border-b border-gray-700">
+
     <!-- Top Row -->
     <div class="flex justify-between items-center w-full">
-      <span class="text-2xl font-bold">BUY LOCAL</span>
+      <span class="text-2xl font-bold text-white">BUY LOCAL</span>
       <div class="flex items-center space-x-4 lg:hidden">
-        <button onclick="toggleSearchBar()"><i class="fas fa-search text-xl"></i></button>
-        <button    onclick="showSection('settingsSection', this)"     >
-  <i class="fas fa-cog text-xl"></i>
-</button>
+        <button onclick="toggleSearchBar()">
+          <i class="fas fa-search text-xl text-white hover:text-green-500 transition-all duration-200"></i>
+        </button>
+        <button onclick="showSection('settingsSection', this)">
+          <i class="fas fa-cog text-xl text-white hover:text-green-500 transition-all duration-200"></i>
+        </button>
       </div>
     </div>
-    
-    <!-- Bottom Row -->
-    <!-- Mobile Nav Icons -->
-<div class="grid grid-cols-6 gap-4 items-center justify-items-center lg:hidden">
-  <i class="fas fa-home text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('homeSection', this)"></i>
-  <i class="fas fa-shopping-bag text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('ordersSection', this)"></i>
-  <i class="fab fa-facebook-messenger text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('messagesSection', this)"></i>
-  <i class="fas fa-store text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('marketSection', this)"></i>
-  <i class="fas fa-bell text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('notificationsSection', this)"></i>
-  <i class="fas fa-user text-xl cursor-pointer text-white-500 hover:text-green-500 transition-all duration-200" onclick="showSection('profileSection', this)"></i>
-</div>
+
+    <!-- Mobile Bottom Row Nav -->
+    <div class="grid grid-cols-6 gap-4 items-center justify-items-center lg:hidden">
+      <i class="fas fa-home text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('homeSection', this)"></i>
+      <i class="fas fa-shopping-bag text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('ordersSection', this)"></i>
+      <i class="fab fa-facebook-messenger text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('messagesSection', this)"></i>
+      <i class="fas fa-store text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('marketSection', this)"></i>
+      <i class="fas fa-bell text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('notificationsSection', this)"></i>
+      <i class="fas fa-user text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('profileSection', this)"></i>
+    </div>
 
   </header>
 
@@ -101,6 +105,7 @@ section.visible {
   <div id="searchBar" class="hidden bg-gray-800 p-4">
     <input type="text" placeholder="Search products or farmers..." class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white" />
   </div>
+
 
   <!-- Main Render Area -->
   <main id="mainContent" class="flex-1 overflow-y-auto p-4">
