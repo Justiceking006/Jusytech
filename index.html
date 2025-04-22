@@ -73,32 +73,38 @@
     <div class="flex-1 flex flex-col">
 
       <!-- Header (Mobile + Desktop) -->
-      <header class="p-4 flex flex-col space-y-3 lg:flex-row lg:justify-between lg:items-center bg-gray-900 border-b border-gray-700">
+<!-- Header (Mobile + Desktop) -->
+<header class="p-3 sm:p-4 bg-gray-900 border-b border-gray-700 overflow-x-hidden">
+  <!-- Responsive Flex Container -->
+  <div class="flex flex-col space-y-2 sm:space-y-3 lg:flex-row lg:justify-between lg:items-center">
+    
+    <!-- Logo & Mobile Actions -->
+    <div class="flex justify-between items-center w-full">
+      <span class="text-lg sm:text-xl md:text-2xl font-bold text-white">BUY LOCAL</span>
+      
+      <!-- Mobile Only Icons -->
+      <div class="flex items-center space-x-2 sm:space-x-4 lg:hidden">
+        <button onclick="toggleSearchBar()">
+          <i class="fas fa-search text-base sm:text-lg md:text-xl text-white hover:text-green-500 transition-all duration-200"></i>
+        </button>
+        <button onclick="showSection('settingsSection', this)">
+          <i class="fas fa-cog text-base sm:text-lg md:text-xl text-white hover:text-green-500 transition-all duration-200"></i>
+        </button>
+      </div>
+    </div>
 
-        <!-- Top Row -->
-        <div class="flex justify-between items-center w-full">
-          <span class="text-2xl font-bold text-white">BUY LOCAL</span>
-          <div class="flex items-center space-x-4 lg:hidden">
-            <button onclick="toggleSearchBar()">
-              <i class="fas fa-search text-xl text-white hover:text-green-500 transition-all duration-200"></i>
-            </button>
-            <button onclick="showSection('settingsSection', this)">
-              <i class="fas fa-cog text-xl text-white hover:text-green-500 transition-all duration-200"></i>
-            </button>
-          </div>
-        </div>
+    <!-- Mobile Bottom Nav -->
+    <div class="grid grid-cols-6 gap-1 sm:gap-3 items-center justify-items-center lg:hidden text-white text-sm sm:text-base md:text-xl">
+      <i class="fas fa-home cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('homeSection', this)"></i>
+      <i class="fas fa-shopping-bag cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('ordersSection', this)"></i>
+      <i class="fab fa-facebook-messenger cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('messagesSection', this)"></i>
+      <i class="fas fa-store cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('marketSection', this)"></i>
+      <i class="fas fa-bell cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('notificationsSection', this)"></i>
+      <i class="fas fa-user cursor-pointer hover:text-green-500 transition-all duration-200" onclick="showSection('profileSection', this)"></i>
+    </div>
 
-        <!-- Mobile Bottom Row Nav -->
-        <div class="grid grid-cols-6 gap-4 items-center justify-items-center lg:hidden">
-          <i class="fas fa-home text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('homeSection', this)"></i>
-          <i class="fas fa-shopping-bag text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('ordersSection', this)"></i>
-          <i class="fab fa-facebook-messenger text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('messagesSection', this)"></i>
-          <i class="fas fa-store text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('marketSection', this)"></i>
-          <i class="fas fa-bell text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('notificationsSection', this)"></i>
-          <i class="fas fa-user text-xl cursor-pointer text-white hover:text-green-500 transition-all duration-200" onclick="showSection('profileSection', this)"></i>
-        </div>
-
-      </header>
+  </div>
+</header>
 
       <!-- Search Bar -->
       <div id="searchBar" class="hidden bg-gray-800 p-4">
@@ -609,10 +615,9 @@
 
   </main>
 </div>
-
-
-
-  </div>  <script src="script.js">
+ </div>  
+  
+  <script src="script.js">
 
     
   </script>
