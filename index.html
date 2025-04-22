@@ -125,62 +125,63 @@
       <!-- Main Render Area -->
       <main id="mainContent" class="flex-1 overflow-y-auto p-4">
         <!-- Your main content will go here -->
-<section id="homeSection" class="main-section bg-[#181818] text-white px-4 py-6 font-sans min-h-screen transition-all duration-300 ease-in-out">
-  <div class="max-w-4xl mx-auto space-y-6">
+<section id="homeSection" class="main-section px-4 py-6 bg-[#181818] text-white font-sans">
+  <h2 class="text-xl font-bold mb-4">Home</h2>
 
-    <!-- Section Title -->
-    <h2 class="text-xl font-bold">Explore Fresh Picks</h2>
+  <!-- Banner Slide (optional enhancement later) -->
+  <!-- <div class="mb-6 rounded-2xl overflow-hidden shadow-lg">
+    <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-40 object-cover" />
+  </div> -->
 
-    <!-- Category Filter Chips -->
-    <div class="flex overflow-x-auto space-x-3 pb-2">
-      <button class="bg-[#2c2c2e] text-white text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">All</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Vegetables</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Fruits</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Livestock</button>
+  <!-- Product Grid -->
+  <div id="productSection" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    
+    <!-- Product Card -->
+    <div class="bg-gray-800 rounded-2xl p-3 shadow-md transition hover:scale-105">
+      <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Fresh Tomatoes" class="w-full h-24 object-cover rounded-xl mb-2" />
+      <div class="text-xs font-semibold text-white mb-1 truncate">Fresh Tomatoes</div>
+      <button onclick="OpenModal('Fresh Tomatoes', 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,500', 'Farmer Justice')"
+        class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded-full">View</button>
     </div>
 
-    <!-- Product Cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <!-- Product Item -->
-      <div class="bg-gray-800 p-3 rounded-lg shadow">
-        <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600"
-          class="w-full h-28 object-cover rounded mb-2" />
-        <h3 class="text-sm font-semibold mb-1">Fresh Tomatoes</h3>
-        <p class="text-xs text-gray-400 mb-2">₦1,500 - <span class="text-green-400">Farmer Justice</span></p>
-        <button onclick="OpenModal('Fresh Tomatoes', 'https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,500', 'Farmer Justice')"
-          class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded">View Product</button>
-      </div>
-
-      <!-- Repeat for other products... -->
+    <!-- Product Card -->
+    <div class="bg-gray-800 rounded-2xl p-3 shadow-md transition hover:scale-105">
+      <img src="https://images.pexels.com/photos/1192056/pexels-photo-1192056.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Sweet Corn" class="w-full h-24 object-cover rounded-xl mb-2" />
+      <div class="text-xs font-semibold text-white mb-1 truncate">Sweet Corn</div>
+      <button onclick="OpenModal('Sweet Corn', 'https://images.pexels.com/photos/1192056/pexels-photo-1192056.jpeg?auto=compress&cs=tinysrgb&w=600', '₦800', 'Farmer Abigail')"
+        class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded-full">View</button>
     </div>
 
-    <!-- Flash Sale Box -->
-    <div class="bg-gray-800 p-4 rounded-lg shadow">
-      <p class="text-sm text-green-400 font-semibold">🔥 Flash Sale</p>
-      <h3 class="text-lg font-bold">Fresh Eggs - ₦1,500 <span class="line-through text-gray-400 text-sm ml-2">₦2,000</span></h3>
-      <p class="text-xs text-gray-300 mb-2">Deal ends in: <span class="text-yellow-400 font-bold">02:15:20</span></p>
-      <img src="https://images.pexels.com/photos/162673/eggs-fresh-organic-egg-chicken-162673.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-28 object-cover rounded">
+    <!-- Product Card -->
+    <div class="bg-gray-800 rounded-2xl p-3 shadow-md transition hover:scale-105">
+      <img src="https://images.pexels.com/photos/3650640/pexels-photo-3650640.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Organic Carrots" class="w-full h-24 object-cover rounded-xl mb-2" />
+      <div class="text-xs font-semibold text-white mb-1 truncate">Organic Carrots</div>
+      <button onclick="OpenModal('Organic Carrots', 'https://images.pexels.com/photos/3650640/pexels-photo-3650640.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,200', 'Farmer Peter')"
+        class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded-full">View</button>
     </div>
 
-    <!-- Featured Farmer -->
-    <div class="bg-gray-800 p-4 rounded-lg shadow">
-      <p class="text-green-400 text-sm">🌟 Featured Farmer</p>
-      <div class="flex items-center gap-3 mt-2">
-        <img src="https://placehold.co/50x50" class="w-10 h-10 rounded-full" />
-        <div>
-          <p class="text-white font-semibold">Musa's Farm</p>
-          <p class="text-xs text-gray-400">“Organic roots from the source.”</p>
-        </div>
-      </div>
+    <!-- Product Card -->
+    <div class="bg-gray-800 rounded-2xl p-3 shadow-md transition hover:scale-105">
+      <img src="https://images.pexels.com/photos/1300974/pexels-photo-1300974.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Cassava Tubers" class="w-full h-24 object-cover rounded-xl mb-2" />
+      <div class="text-xs font-semibold text-white mb-1 truncate">Cassava Tubers</div>
+      <button onclick="OpenModal('Cassava Tubers', 'https://images.pexels.com/photos/1300974/pexels-photo-1300974.jpeg?auto=compress&cs=tinysrgb&w=600', '₦2,000', 'Farmer Blessing')"
+        class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded-full">View</button>
     </div>
 
-    <!-- Request Product CTA -->
-    <div class="text-center">
-      <button class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-500 text-sm shadow">
-        Can’t find what you need? Request a Product
-      </button>
+    <!-- Product Card -->
+    <div class="bg-gray-800 rounded-2xl p-3 shadow-md transition hover:scale-105">
+      <img src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600"
+        alt="Ripe Plantains" class="w-full h-24 object-cover rounded-xl mb-2" />
+      <div class="text-xs font-semibold text-white mb-1 truncate">Ripe Plantains</div>
+      <button onclick="OpenModal('Ripe Plantains', 'https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600', '₦1,000', 'Farmer Kelvin')"
+        class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-xs rounded-full">View</button>
     </div>
 
+    <!-- Add more cards as needed... -->
   </div>
 </section>
 
