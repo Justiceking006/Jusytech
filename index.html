@@ -210,6 +210,64 @@ section.visible {
   </div>
 </div>
 
+
+   
+  <!-- Category Chips -->
+  <div class="flex overflow-x-auto space-x-3 mb-5">
+    <button class="bg-[#2c2c2e] text-white text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">All</button>
+    <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Vegetables</button>
+    <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Fruits</button>
+    <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-1 rounded-full hover:bg-green-600 transition">Livestock</button>
+  </div>
+
+  <!-- Flash Sale Card -->
+  <div class="bg-[#2c2c2e] rounded-2xl p-4 text-white mb-6 shadow-lg animate-fadeInUp">
+    <p class="text-sm text-green-400 font-semibold">🔥 Flash Sale</p>
+    <h3 class="text-lg font-bold">Fresh Eggs - ₦1,500 <span class="line-through text-gray-400 text-sm ml-2">₦2,000</span></h3>
+    <p class="text-xs text-gray-300">Deal ends in: <span class="text-yellow-400 font-bold">02:15:20</span></p>
+    <img src="https://images.pexels.com/photos/162673/eggs-fresh-organic-egg-chicken-162673.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-28 object-cover rounded-xl mt-3">
+  </div>
+
+  <!-- Featured Farmer -->
+  <div class="bg-[#2c2c2e] rounded-xl p-4 mb-6 shadow-lg animate-fadeInUp">
+    <p class="text-green-400 text-sm">🌟 Featured Farmer</p>
+    <div class="flex items-center gap-3 mt-2">
+      <img src="https://placehold.co/50x50" class="w-10 h-10 rounded-full">
+      <div>
+        <p class="text-white font-semibold">Musa's Farm</p>
+        <p class="text-xs text-gray-400">“Organic roots from the source.”</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Request Product Button -->
+  <div class="text-center my-6 animate-pulse">
+    <button class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-500 text-sm shadow-lg">
+      Can’t find what you need? Request a Product
+    </button>
+  </div>
+
+  <!-- Review Card -->
+  <div class="bg-[#2c2c2e] p-4 rounded-xl shadow mb-6 animate-fadeInUp">
+    <div class="flex items-center gap-2 mb-2">
+      <img src="https://placehold.co/40x40" class="rounded-full w-8 h-8">
+      <div>
+        <p class="text-sm font-medium text-white">Grace Olu</p>
+        <p class="text-xs text-gray-400">"Musa’s yam was super fresh!"</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Product Cards Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-gray-800 rounded-lg p-3 shadow-lg transform transition hover:scale-105 animate-fadeInUp">
+      <img src="https://via.placeholder.com/150" alt="Product Image" class="w-full h-24 object-cover rounded mb-2" />
+      <div class="text-sm font-semibold text-white mb-2">Fresh Tomatoes</div>
+      <button onclick="OpenModal()" class="w-full bg-green-600 hover:bg-green-500 text-white py-1 text-sm rounded">View</button>
+    </div>
+    <!-- Add more cards like this one with animation -->
+  </div>
+
 </section>
 
   <!-- Other sections (start hidden) -->
