@@ -73,49 +73,48 @@
     <div class="flex-1 flex flex-col">
 
       <!-- Header (Mobile + Desktop) -->
-<header class="p-2 sm:p-3 bg-gray-900 border-b border-gray-700 w-full">
+<header class="p-3 bg-gray-900 border-b border-gray-700 w-full shadow-sm">
   <div class="flex flex-col gap-2 lg:flex-row lg:justify-between lg:items-center w-full">
 
     <!-- Top Row -->
     <div class="flex justify-between items-center w-full">
-      <span class="text-lg sm:text-xl font-bold text-white truncate">BUY LOCAL</span>
+      <span class="text-xl sm:text-2xl font-bold text-white tracking-tight">BUY LOCAL</span>
 
-      <!-- Icons -->
-      <div class="flex items-center gap-2 sm:gap-3 lg:hidden">
-        <button onclick="toggleSearchBar()">
-          <i class="fas fa-search text-sm sm:text-base text-white hover:text-green-500"></i>
+      <!-- Top Right Icons -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <button onclick="toggleSearchBar()" aria-label="Search" class="text-white hover:text-green-500 text-2xl transition-all duration-200">
+          <i class="fas fa-search"></i>
         </button>
-        <button onclick="showSection('settingsSection', this)">
-          <i class="fas fa-cog text-sm sm:text-base text-white hover:text-green-500"></i>
+        <button onclick="showSection('settingsSection', this)" aria-label="Settings" class="text-white hover:text-green-500 text-2xl transition-all duration-200">
+          <i class="fas fa-cog"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Bottom Navigation -->
-    <div class="grid grid-cols-6 w-full text-white text-xs sm:text-sm lg:hidden">
-      <button class="flex justify-center items-center py-2" onclick="showSection('homeSection', this)">
-        <i class="fas fa-home hover:text-green-500"></i>
+    <!-- Mobile Bottom Navigation (iOS style rounded + spacing) -->
+    <div class="grid grid-cols-6 w-full bg-[#101010] rounded-xl px-3 py-2 mt-2 lg:hidden shadow-md">
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('homeSection', this)">
+        <i class="fas fa-home text-xl"></i>
       </button>
-      <button class="flex justify-center items-center py-2" onclick="showSection('ordersSection', this)">
-        <i class="fas fa-shopping-bag hover:text-green-500"></i>
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('ordersSection', this)">
+        <i class="fas fa-shopping-bag text-xl"></i>
       </button>
-      <button class="flex justify-center items-center py-2" onclick="showSection('messagesSection', this)">
-        <i class="fab fa-facebook-messenger hover:text-green-500"></i>
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('messagesSection', this)">
+        <i class="fab fa-facebook-messenger text-xl"></i>
       </button>
-      <button class="flex justify-center items-center py-2" onclick="showSection('marketSection', this)">
-        <i class="fas fa-store hover:text-green-500"></i>
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('marketSection', this)">
+        <i class="fas fa-store text-xl"></i>
       </button>
-      <button class="flex justify-center items-center py-2" onclick="showSection('notificationsSection', this)">
-        <i class="fas fa-bell hover:text-green-500"></i>
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('notificationsSection', this)">
+        <i class="fas fa-bell text-xl"></i>
       </button>
-      <button class="flex justify-center items-center py-2" onclick="showSection('profileSection', this)">
-        <i class="fas fa-user hover:text-green-500"></i>
+      <button class="flex flex-col items-center gap-1 text-white hover:text-green-500 transition" onclick="showSection('profileSection', this)">
+        <i class="fas fa-user text-xl"></i>
       </button>
     </div>
 
   </div>
 </header>
-
 
       <!-- Search Bar -->
       <div id="searchBar" class="hidden bg-gray-800 p-4">
