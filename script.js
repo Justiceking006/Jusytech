@@ -185,4 +185,4 @@ function showNextSlide() {
   slideIndex = (slideIndex + 1) % totalSlides;
   bannerSlider.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
-setInterval(showNextSlide, 1500); // Change every 3.5 seconds
+setInterval(showNextSlide, 3500); // Change every 3.5 seconds
