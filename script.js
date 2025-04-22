@@ -186,3 +186,30 @@ function showNextSlide() {
   bannerSlider.style.transform = `translateX(-${slideIndex * 100}%)`;
 }
 setInterval(showNextSlide, 3500); // Change every 3.5 seconds
+
+
+  // Set how long the countdown should be (e.g., 5 minutes from now)
+  const duration = 5 * 60 * 1000; // 5 mins in milliseconds
+  const endTime = new Date().getTime() + duration;
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = endTime - now;
+
+    if (timeLeft <= 0) {
+      document.getElementById("countdownTimer").textContent = "00:00:00";
+      clearInterval(timerInterval);
+      return;
+    }
+
+    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("countdownTimer").textContent = 
+      `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+  const timerInterval = setInterval(updateCountdown, 1000);
+  updateCountdown(); // Call once immediately
+
