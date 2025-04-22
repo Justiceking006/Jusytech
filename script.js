@@ -175,3 +175,14 @@ function openProductDetail() {
   document.getElementById('productDetail').classList.remove('hidden');
 }
 
+
+
+let slideIndex = 0;
+const bannerSlider = document.getElementById('bannerSlider');
+const totalSlides = bannerSlider.children.length;
+
+function showNextSlide() {
+  slideIndex = (slideIndex + 1) % totalSlides;
+  bannerSlider.style.transform = `translateX(-${slideIndex * 100}%)`;
+}
+setInterval(showNextSlide, 3500); // Change every 3.5 seconds
