@@ -213,3 +213,20 @@ setInterval(showNextSlide, 3500); // Change every 3.5 seconds
   const timerInterval = setInterval(updateCountdown, 1000);
   updateCountdown(); // Call once immediately
 
+
+
+// Countdown logic for timer in flash sale
+const countdownTimer = document.getElementById("countdownTimer");
+function startCountdown(hours, minutes, seconds) {
+  let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+  const interval = setInterval(() => {
+    const hrs = Math.floor(totalSeconds / 3600);
+    const mins = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+    countdownTimer.innerText = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    if (totalSeconds <= 0) clearInterval(interval);
+    totalSeconds--;
+  }, 1000);
+}
+startCountdown(2, 15, 20);
+
