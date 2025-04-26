@@ -240,61 +240,70 @@
   </div>
 </section>
 
-        <section id="homeSection" class="main-section hidden bg-[#181818] text-white px-4 py-6 font-sans">
-  <div class="max-w-md mx-auto space-y-6">
+<!-- ✅ Wrapper Section --><section id="homeSection" class="main-section  px-4 py-6 bg-[#181818] text-white font-sans">
+  <div class="max-w-md mx-auto space-y-6"><!-- ✅ Featured Product Banner -->
+<div id="featuredProduct" class="bg-[#222] rounded-2xl overflow-hidden shadow-md animate-fade-in h-48 relative">
+  <img src="product-image/tomatoes.png" class="w-full h-full object-cover opacity-70" alt="Featured Product">
+  <div class="absolute bottom-4 left-4">
+    <h2 class="text-xl font-bold">Fresh Tomatoes</h2>
+    <p class="text-sm text-gray-300">₦1,200 - Sold by Blessing Farms</p>
+  </div>
+</div>
 
-    <!-- Hero Banner -->
-    <div class="bg-[#222] rounded-2xl overflow-hidden shadow-md animate-fade-in h-48 relative">
-      <img src="https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-full object-cover opacity-70" alt="Fresh Produce">
-      <div class="absolute bottom-4 left-4">
-        <h2 class="text-xl font-bold">Fresh From the Farm</h2>
-        <p class="text-sm text-gray-300">Delivered to your doorstep</p>
-      </div>
-    </div>
+<!-- ✅ Similar Products Heading -->
+<h3 class="text-lg font-semibold">Similar Products</h3>
 
-    <!-- Quick Access Categories -->
-    <div class="flex overflow-x-auto space-x-3">
-      <button class="bg-[#2c2c2e] text-white text-sm px-4 py-2 rounded-full">All</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-2 rounded-full">Fruits</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-2 rounded-full">Vegetables</button>
-      <button class="bg-[#1c1c1e] text-gray-400 text-sm px-4 py-2 rounded-full">Livestock</button>
-    </div>
+<!-- ✅ Similar Products Grid -->
+<div class="grid grid-cols-4 gap-2">
+  <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+    <img src="product-image/yam.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+    <p class="text-xs">Yam</p>
+  </div>
+  <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+    <img src="product-image/corn.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+    <p class="text-xs">Corn</p>
+  </div>
+  <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+    <img src="product-image/rice.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+    <p class="text-xs">Rice</p>
+  </div>
+  <div class="bg-[#292929] p-2 rounded-xl flex flex-col items-center text-center">
+    <img src="product-image/pepper.png" class="w-14 h-14 object-cover rounded-lg mb-1" />
+    <p class="text-xs">Pepper</p>
+  </div>
+</div>
 
-    <!-- Featured Section -->
-    <div class="bg-[#2c2c2e] p-4 rounded-xl shadow">
-      <p class="text-sm text-green-400 font-medium">🌾 Featured Product</p>
-      <h3 class="text-lg font-bold">Organic Carrots</h3>
-      <p class="text-sm text-gray-400 mb-2">₦1,000 - Grown by Justice Farms</p>
-      <img src="https://images.pexels.com/photos/3650640/pexels-photo-3650640.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-28 object-cover rounded-xl" alt="Carrots">
-    </div>
+<!-- ✅ Post or Request Product CTA -->
+<div class="bg-green-700 rounded-xl p-4 mt-6 flex items-center justify-between">
+  <p class="text-sm">Want to post or request a product?</p>
+  <button class="bg-white text-green-700 text-sm font-bold px-4 py-1 rounded">Create</button>
+</div>
 
-    <!-- Quick Actions -->
-    <div class="bg-green-600 text-white rounded-xl p-4 flex justify-between items-center shadow">
-      <p class="text-sm">Want to post or request a product?</p>
-      <button class="bg-white text-green-700 text-xs px-4 py-1 rounded-full">Create</button>
-    </div>
+<!-- ✅ Scroll Categories -->
+<div class="space-y-6 mt-8">
+  <!-- Category Title -->
+  <h3 class="text-lg font-semibold">New Arrivals</h3>
 
-    <!-- Trending Items -->
-    <div>
-      <h3 class="text-lg font-semibold mb-2">Trending</h3>
-      <div class="grid grid-cols-3 gap-2">
-        <div class="bg-[#292929] p-2 rounded-xl">
-          <img src="https://images.pexels.com/photos/1300974/pexels-photo-1300974.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-20 object-cover rounded mb-1">
-          <p class="text-xs text-center">Cassava</p>
-        </div>
-        <div class="bg-[#292929] p-2 rounded-xl">
-          <img src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-20 object-cover rounded mb-1">
-          <p class="text-xs text-center">Plantain</p>
-        </div>
-        <div class="bg-[#292929] p-2 rounded-xl">
-          <img src="https://images.pexels.com/photos/1192056/pexels-photo-1192056.jpeg?auto=compress&cs=tinysrgb&w=600" class="w-full h-20 object-cover rounded mb-1">
-          <p class="text-xs text-center">Sweet Corn</p>
-        </div>
-      </div>
+  <!-- Product Row -->
+  <div class="grid grid-cols-3 gap-2">
+    <div class="bg-[#292929] p-2 rounded-xl">
+      <img src="product-image/goat.png" class="w-full h-20 object-cover rounded mb-1">
+      <p class="text-sm">Goat</p>
     </div>
+    <div class="bg-[#292929] p-2 rounded-xl">
+      <img src="product-image/pawpaw.png" class="w-full h-20 object-cover rounded mb-1">
+      <p class="text-sm">Pawpaw</p>
+    </div>
+    <div class="bg-[#292929] p-2 rounded-xl">
+      <img src="product-image/rabbit.png" class="w-full h-20 object-cover rounded mb-1">
+      <p class="text-sm">Rabbit</p>
+    </div>
+  </div>
+</div>
 
   </div>
-        </section>
+</section>
+
 
 
 <section id="settingsSection" class="main-section hidden bg-[#181818] text-white px-4 py-6 font-sans min-h-screen">
@@ -561,4 +570,4 @@
 </div>
 
 </body>
-</html>
+          </html>
