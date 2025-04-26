@@ -215,18 +215,21 @@ setInterval(showNextSlide, 3500); // Change every 3.5 seconds
 
 
 
-// Countdown logic for timer in flash sale
-const countdownTimer = document.getElementById("countdownTimer");
-function startCountdown(hours, minutes, seconds) {
-  let totalSeconds = hours * 3600 + minutes * 60 + seconds;
-  const interval = setInterval(() => {
-    const hrs = Math.floor(totalSeconds / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-    countdownTimer.innerText = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    if (totalSeconds <= 0) clearInterval(interval);
-    totalSeconds--;
-  }, 1000);
+// === Live Search Functionality ===
+
+function searchProducts() {
+  const input = document.getElementById('searchInput');
+  const filter = input.value.toLowerCase();
+  const products = document.querySelectorAll('#productSection > div');
+
+  products.forEach(product => {
+    const productName = product.querySelector('div').textContent.toLowerCase();
+    if (productName.includes(filter)) {
+      product.style.display = '';
+    } else {
+      product.style.display = 'none';
+    }
+  });
 }
-startCountdown(2, 15, 20);
+
 
