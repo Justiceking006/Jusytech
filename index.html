@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BUY LOCAL - Farm App</title>
   <link rel="stylesheet" href="style.css">
- 
+ <!-- SwiperJS CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- SwiperJS Script -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
   <style>
     #productModal{
@@ -218,7 +223,7 @@
 
   <textarea id="productDescription" placeholder="Product Description" class="w-full p-2 rounded bg-gray-700 border border-gray-600 text-white text-sm outline-none"></textarea>
 
-  <button onclick="submitProduct()" class="w-full bg-green-600 hover:bg-green-500 text-white py-2 rounded-lg">Submit</button>
+  <button onclick="submitProduct()"  class="w-full bg-green-600 hover:bg-green-500 text-white py-2 rounded-lg">Submit</button>
 </div>
 
     <!-- ✅ Scroll Categories -->
@@ -250,31 +255,20 @@
   <div class="max-w-md mx-auto space-y-6">
 
     <!-- ✅ SwiperJS Featured Product Banner -->
-    <div class="swiper mySwiper rounded-2xl overflow-hidden shadow-md h-48">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide relative">
-          <img src="product-image/tomatoes.png" class="w-full h-full object-cover opacity-70" />
-          <div class="absolute bottom-4 left-4">
-            <h2 class="text-xl font-bold">Fresh Tomatoes</h2>
-            <p class="text-sm text-gray-300">₦1,200 - Sold by Blessing Farms</p>
-          </div>
-        </div>
-        <div class="swiper-slide relative">
-          <img src="product-image/yam.png" class="w-full h-full object-cover opacity-70" />
-          <div class="absolute bottom-4 left-4">
-            <h2 class="text-xl font-bold">Big Yams</h2>
-            <p class="text-sm text-gray-300">₦5,000 - Sold by Musa</p>
-          </div>
-        </div>
-        <div class="swiper-slide relative">
-          <img src="product-image/corn.png" class="w-full h-full object-cover opacity-70" />
-          <div class="absolute bottom-4 left-4">
-            <h2 class="text-xl font-bold">Sweet Corn</h2>
-            <p class="text-sm text-gray-300">₦700 - Sold by Grace</p>
-          </div>
-        </div>
-      </div>
+   <!-- ✅ Banner Slider (Swiper) -->
+<div class="swiper-container rounded-2xl overflow-hidden shadow-md h-48">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="product-image/tomatoes.png" class="w-full h-full object-cover" />
     </div>
+    <div class="swiper-slide">
+      <img src="product-image/yam.png" class="w-full h-full object-cover" />
+    </div>
+    <div class="swiper-slide">
+      <img src="product-image/rice.png" class="w-full h-full object-cover" />
+    </div>
+  </div>
+</div>
 
     <!-- ✅ Similar Products Heading -->
     <h3 class="text-lg font-semibold">Similar Products</h3>
