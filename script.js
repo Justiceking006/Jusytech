@@ -231,28 +231,3 @@ function searchProducts() {
   });
 }
 
-
-// Show the Post Product Form
-function openPostForm() {
-  document.getElementById('postProductForm').classList.remove('hidden');
-}
-
-// Handle Form Submission
-function submitProduct() {
-  const name = document.getElementById('productName').value;
-  const price = document.getElementById('productPrice').value;
-  const description = document.getElementById('productDescription').value;
-  const image = document.getElementById('productImage').files[0];
-
-  if (!name || !price || !description || !image) {
-    alert('Please fill all fields!');
-    return;
-  }
-
-  alert('🎉 Product submitted successfully (simulation)');
-  document.getElementById('postProductForm').classList.add('hidden');
-
-  // You can add your own logic later to send this data to PHP server side
-}
-
-
