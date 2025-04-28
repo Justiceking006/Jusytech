@@ -231,3 +231,35 @@ function searchProducts() {
   });
 }
 
+
+// Initialize SwiperJS
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+});
+
+// Open the Post Product Form
+function openPostForm() {
+  document.getElementById('postProductForm').classList.remove('hidden');
+}
+
+// Submit Product Simulation
+function submitProduct() {
+  const name = document.getElementById('productName').value;
+  const price = document.getElementById('productPrice').value;
+  const description = document.getElementById('productDescription').value;
+  const image = document.getElementById('productImage').files[0];
+
+  if (!name || !price || !description || !image) {
+    alert('Please fill all fields properly!');
+    return;
+  }
+
+  alert('✅ Product submitted successfully (simulation)');
+  document.getElementById('postProductForm').classList.add('hidden');
+
+  // Later, we connect this to PHP backend 🚀
+}
