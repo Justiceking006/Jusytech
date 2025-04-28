@@ -608,5 +608,54 @@
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    function searchProducts() {
+  const input = document.getElementById('searchInput');
+  const filter = input.value.toLowerCase();
+  const products = document.querySelectorAll('#productSection > div');
+
+  products.forEach(product => {
+    const productName = product.querySelector('div').textContent.toLowerCase();
+    if (productName.includes(filter)) {
+      product.style.display = '';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+}
+
+
+// Initialize SwiperJS
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+});
+
+// Open the Post Product Form
+function openPostForm() {
+  document.getElementById('postProductForm').classList.remove('hidden');
+}
+
+// Submit Product Simulation
+function submitProduct() {
+  const name = document.getElementById('productName').value;
+  const price = document.getElementById('productPrice').value;
+  const description = document.getElementById('productDescription').value;
+  const image = document.getElementById('productImage').files[0];
+
+  if (!name || !price || !description || !image) {
+    alert('Please fill all fields properly!');
+    return;
+  }
+
+  alert('✅ Product submitted successfully (simulation)');
+  document.getElementById('postProductForm').classList.add('hidden');
+
+  // Later, we connect this to PHP backend 🚀
+}
+  </script>
 </body>
           </html>
