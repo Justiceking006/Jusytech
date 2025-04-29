@@ -563,9 +563,9 @@
       </div>
 
       <!-- Messages Area -->
-      <div id="chatMessages" class="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-[#121212]">
-        <!-- Messages will appear here -->
-      </div>
+    <div id="chatMessages" class="overflow-y-auto px-4 py-3 space-y-3 bg-[#121212] max-h-[300px] rounded-lg scroll-smooth">
+  <!-- Messages will appear here -->
+    </div>
 
       <!-- Input Area -->
       <div class="px-4 py-3 bg-gray-900 border-t border-gray-700 flex items-center gap-3">
@@ -664,6 +664,26 @@ function submitProduct() {
 
   // Later, we connect this to PHP backend 🚀
 }
+
+    function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+
+  if (message !== '') {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'bg-green-700 text-white px-4 py-2 rounded-xl max-w-xs self-end';
+    messageDiv.textContent = message;
+    chatMessages.appendChild(messageDiv);
+
+    // Auto-scroll to bottom
+    setTimeout(() => {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 100);
+
+    input.value = '';
+  }
+    }
   </script>
 </body>
           </html>
